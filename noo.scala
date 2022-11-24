@@ -35,7 +35,9 @@ object Main extends ZIOAppDefault {
     case Method.GET -> !! =>
       Response.html(
         html(
+          title("Nature of Order"),
           body(
+            h1("15 Properties of Living Structure"),
             a(href := "15-properties", "15 properties"),
             br(),
             a(href := "15-properties/random", "random property"),
