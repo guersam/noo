@@ -29,9 +29,10 @@ object Main extends ZIOAppDefault {
     Property("15. Not-separatedness", "In a living whole, any centers deeply connect and melt into their surroundings, not separate from them. They are merged inseparably, but they still have their character and personality. To achieve this connectedness, the boundary between the centers and their surroundings are fragmented or gradient. As a result of this deep coherence, things feel completely at peace."),
   )
 
+  import zio.http.html.*
+
   val app: HttpApp[Any, Nothing] = Http.collect[Request] {
     case Method.GET -> !! =>
-      import zio.http.html.*
       Response.html(
         html(
           body(
@@ -47,8 +48,9 @@ object Main extends ZIOAppDefault {
       Response.text(lines.mkString("\n\n--\n\n"))
 
     case Method.GET -> !! / "15-properties" / "random" =>
-      val picked = scala.util.Random.shuffle(properties).head
-      Response.text(s"${picked.name}\n\n${picked.description}")
+      val prop = scala.util.Random.shuffle(properties).head
+      val propHtml = section(h2(prop.name), p(prop.description))
+      Response.html(html(body(propHtml)))
   }
 
   override val run =
