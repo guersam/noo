@@ -73,7 +73,7 @@ object Main extends ZIOAppDefault {
         propHtmls, 
         a(href := "/", "back"),
         br(),
-        a(href := "/15-properties", "random property"),
+        a(href := "/15-properties/random", "random property"),
       )))
 
     case Method.GET -> !! / "15-properties" / "random" =>
