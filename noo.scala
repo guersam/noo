@@ -44,8 +44,8 @@ object Main extends ZIOAppDefault {
       )
 
     case Method.GET -> !! / "15-properties" =>
-      val lines = properties.map { p => s"${p.name}\n\n${p.description}" }
-      Response.text(lines.mkString("\n\n--\n\n"))
+      val propHtmls: Seq[Dom] = properties.map(prop => section(h2(prop.name), p(prop.description)))
+      Response.html(html(body(propHtmls)))
 
     case Method.GET -> !! / "15-properties" / "random" =>
       val prop = scala.util.Random.shuffle(properties).head
