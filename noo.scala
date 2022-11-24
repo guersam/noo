@@ -29,6 +29,25 @@ object Main extends ZIOAppDefault {
     Property("15. Not-separatedness", "In a living whole, any centers deeply connect and melt into their surroundings, not separate from them. They are merged inseparably, but they still have their character and personality. To achieve this connectedness, the boundary between the centers and their surroundings are fragmented or gradient. As a result of this deep coherence, things feel completely at peace."),
   )
 
+  val krProperties = Vector(
+    Property("1. 규모의 수준", "중심은 크기가 다를 때 서로를 강화합니다. 서로 다른 눈금 사이의 간격은 그리 크지 않아야 하며, 실제로는 한 중심이 다른 중심의 절반 또는 두 배 크기일 것이다. 크기가 잘 정돈된 범위가 있으면 필드 효과가 형성되고, 그 다음에 중심들을 하나로 묶어 전체를 만든다."),
+    Property("2. 강한 중심", "살아있는 전체는 그 안에 강한 중심을 포함한다. 강한 중심의 개념은 재귀적으로 적용된다. 모든 강한 중심은 여러 개의 작은 강한 중심으로 구성된다. 그럼에도 불구하고, 종종 전체에 주요한 강한 중심이 있다. 강한 중심은 중첩으로 인해 발생하는 필드 효과가 있습니다."),
+    Property("3. 경계", "더 작은 중심으로 구성된 고리 모양의 중심은 경계가 있는 중심을 강화하는 필드 모양의 효과를 형성한다. 그것은 또한 경계를 넘어 세계와 경계를 이루는 중심을 통합한다. 경계와 경계가 있는 중심의 크기 순서가 같아야 합니다."),
+    Property("4. 번갈아 반복하기", "중심은 미묘한 변화로 반복될 때 강화된다. 반복되는 것은 전체적으로 그들의 위치에 따라 수정되기 때문에 교대 반복은 단순한 반복이 아니다. 이 규칙이 모든 실체, 실체 사이의 공간, 반복의 과정에 재귀적으로 적용될 때 아름다운 조화가 만들어진다. 반복되는 중심의 패턴이 필드 효과를 형성하고, 그 결과 전체성이 나타난다."),
+    Property("5. 양의 공간", "살아있는 전체는 우주의 모든 부분이 중심으로서 긍정적인 모양을 가진 강한 중심만을 가지고 있다. 인접한 도형에서 남은 부분이 없습니다."),
+    Property("6. 좋은 모양", "살아있는 전체는 여러 개의 일관된 중심으로 구성된 전체로서 좋은 모양을 가지고 있다. 좋은 모양은 전체의 속성이지만 전체는 그 자체가 완전한 것이라는 강렬한 중심으로 구성되어야 한다. 그런 면에서 좋은 모양의 요소들도 좋은 모양 그 자체이다. 좋은 모양의 결과는 사물을 아름답게 만들 뿐만 아니라 그것들을 더 잘 발견하고 효과적으로 만드는 것이라는 것을 주목하라."),
+    Property("7. 로컬 대칭", "살아있는 전체는 서로 맞물리고 겹쳐지는 다양한 대칭 세그먼트를 포함한다. 대칭의 이러한 특징을 전체 대칭과 구별하기 위해 국소 대칭이라고 한다. 각 국소 대칭 세그먼트는 더 작은 중심으로 구성되며 중심의 일관성을 만듭니다. 국소 대칭은 구별되지 않지만 서로 겹친다. 이러한 국소 대칭의 지속적인 중첩은 전체를 구축하는 접착제 역할을 한다."),
+    Property("8. 깊은 연동과 모호성", "살아있는 전체는 중심과 주변을 연결하는 형태를 가지고 있다. 중심과 그 주변은 모호하게 둘 다에 속하는 세 번째 중심 세트를 통해 상호 침투한다."),
+    Property("9. 대비", "중심과 주변 중심의 뚜렷한 구분으로 중심이 강화된다. 예를 들어 대비의 형태는 검은색/흰색, 어두운/밝은색, 비어있는/ 가득 찬 것, 솔리드/보이드, 비지/사일런트입니다. 반대되는 것들의 차이는 사물들을 분리시킬 뿐만 아니라 그것들을 하나로 묶는다."),
+    Property("10. 경사도", "품질은 살아있는 전체의 공간에 걸쳐 갑자기가 아니라 점진적으로 변화한다. 크기가 다른 일련의 단계별 센터는 전체적으로 필드 효과가 있는 새로운 센터를 형성합니다. 이러한 기울기는 상황의 자연스러운 변화에 대응함으로써 발생한다."),
+    Property("11. 거칠기", "생활 도매상들은 그 안에 지역적인 부정행위가 있다. 불규칙성은 환경의 불규칙성에 적응하고 인근의 다른 센터들의 요구와 제약에 대응함으로써 발생하는 것이지, 설계상의 임의적인 결정에 의한 것이 아니다. 그런 의미에서 거칠기는 완벽의 한 형태이다."),
+    Property("12. 메아리", "살아있는 전체는 그 안에 깊은 근본적인 유사점을 포함하고 있다. 이러한 유사성은 단순히 표면적인 수준에서만 존재하는 것이 아니라, 그것들을 만드는 과정에서 유사성에서 파생된 구조의 더 깊은 수준에서 존재한다. 요소들의 유사성은 그것들을 하나로 묶어서 하나의 통일체를 형성한다."),
+    Property("13. 공허", "센터는 빈 센터의 존재로 인해 강화된다. 이 공허함은 현장에 존재해야 고요함과 공허함의 균형을 유지할 수 있다."),
+    Property("14. 단순함과 내면의 고요", "살아있는 전체는 일정한 느림, 위엄, 그리고 고요함, 즉 내면의 평온한 상태를 가지고 있다. 이 품질은 불필요한 모든 것이 제거되는 내적 단순성에서 비롯된다. 그것은 표면적인 의미에서 단순함을 의미하는 것이 아니라 진정한 마음의 단순함을 의미한다."),
+    Property("15. 미분리", "살아있는 전체에서, 어떤 중심이든 그들과 분리되지 않고, 그들의 주변으로 깊게 연결되고 녹아든다. 그들은 불가분의 관계로 합병되었지만, 그들은 여전히 그들의 성격과 개성을 가지고 있다. 이러한 연결성을 달성하기 위해 중심과 주변 사이의 경계는 파편화되거나 구배된다. 이 깊은 일관성의 결과로, 사물들은 완전히 평화롭게 느껴진다."),
+  )
+
+
   import zio.http.html.*
 
   val app: HttpApp[Any, Nothing] = Http.collect[Request] {
@@ -58,10 +77,16 @@ object Main extends ZIOAppDefault {
       )))
 
     case Method.GET -> !! / "15-properties" / "random" =>
-      val prop = scala.util.Random.shuffle(properties).head
+      val i = scala.util.Random.nextInt(properties.length)
+      val prop = properties(i)
       val propHtml = section(h2(prop.name), p(prop.description))
+
+      val krProp = krProperties(i)
+      val krPropHtml = section(h2(krProp.name), p(krProp.description))
+
       Response.html(html(body(
         propHtml,
+        krPropHtml,
         a(href := "/", "back"),
         br(),
         a(href := "/15-properties", "all properties"),
