@@ -45,12 +45,25 @@ object Main extends ZIOAppDefault {
 
     case Method.GET -> !! / "15-properties" =>
       val propHtmls: Seq[Dom] = properties.map(prop => section(h2(prop.name), p(prop.description)))
-      Response.html(html(body(propHtmls)))
+      Response.html(html(body(
+        a(href := "/", "back"),
+        br(),
+        a(href := "/15-properties", "random property"),
+        propHtmls, 
+        a(href := "/", "back"),
+        br(),
+        a(href := "/15-properties", "random property"),
+      )))
 
     case Method.GET -> !! / "15-properties" / "random" =>
       val prop = scala.util.Random.shuffle(properties).head
       val propHtml = section(h2(prop.name), p(prop.description))
-      Response.html(html(body(propHtml)))
+      Response.html(html(body(
+        propHtml,
+        a(href := "/", "back"),
+        br(),
+        a(href := "/15-properties", "all properties"),
+      )))
   }
 
   override val run =
