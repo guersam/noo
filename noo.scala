@@ -30,7 +30,11 @@ object Main extends ZIOAppDefault {
   )
 
   val app: HttpApp[Any, Nothing] = Http.collect[Request] {
-    case Method.GET -> !! / "random-property" =>
+    case Method.GET -> !! / "15-properties" =>
+      val lines = properties.map { p => s"${p.name}\n\n${p.description}" }
+      Response.text(lines.mkString("\n\n--\n\n"))
+
+    case Method.GET -> !! / "15-properties" / "random" =>
       val picked = scala.util.Random.shuffle(properties).head
       Response.text(s"${picked.name}\n\n${picked.description}")
   }
