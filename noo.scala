@@ -74,7 +74,9 @@ object Main extends ZIOAppDefault {
          properties.zip(krProperties)
           .flatMap { case (p, kp) => List(p.toHtml, kp.toHtml, hr()) }
 
-      Response.html(html(body(
+      Response.html(html(
+        head(meta(Dom.attr("charset", "UTF-8"))),
+        body(
         a(href := "/", "back"),
         br(),
         a(href := "/15-properties", "random property"),
@@ -91,14 +93,16 @@ object Main extends ZIOAppDefault {
       val prop = properties(i)
       val krProp = krProperties(i)
 
-      Response.html(html(body(
-        prop.toHtml,
-        krProp.toHtml,
-        hr(),
-        a(href := "/", "back"),
-        br(),
-        a(href := "/15-properties", "all properties"),
-      )))
+      Response.html(html(
+        head(meta(Dom.attr("charset", "UTF-8"))),
+        body(
+          prop.toHtml,
+          krProp.toHtml,
+          hr(),
+          a(href := "/", "back"),
+          br(),
+          a(href := "/15-properties", "all properties"),
+        )))
   }
 
   override val run =
