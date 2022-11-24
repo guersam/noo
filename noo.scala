@@ -8,8 +8,14 @@ import zio.http.*
 import zio.http.model.Method
 
 object Main extends ZIOAppDefault {
+  import zio.http.html.*
 
-  case class Property(name: String, description: String)
+  case class Property(name: String, description: String) {
+    def toHtml = section(
+      h2(name),
+      p(description)
+    )
+  }
 
   val properties = Vector(
     Property("1. Levels of Scale", "Centers intensify each other when they are different in size. The gap between different scales must not be very large, and practically, one center would be half or twice the size of another. If there is a well-ordered range of sizes, a field effect is formed, and then, a whole is made by tying the centers together."),
@@ -48,7 +54,6 @@ object Main extends ZIOAppDefault {
   )
 
 
-  import zio.http.html.*
 
   val app: HttpApp[Any, Nothing] = Http.collect[Request] {
     case Method.GET -> !! =>
@@ -65,7 +70,7 @@ object Main extends ZIOAppDefault {
       )
 
     case Method.GET -> !! / "15-properties" =>
-      val propHtmls: Seq[Dom] = properties.map(prop => section(h2(prop.name), p(prop.description)))
+      val propHtmls: Seq[Dom] = properties.map(_.toHtml)
       Response.html(html(body(
         a(href := "/", "back"),
         br(),
@@ -79,14 +84,11 @@ object Main extends ZIOAppDefault {
     case Method.GET -> !! / "15-properties" / "random" =>
       val i = scala.util.Random.nextInt(properties.length)
       val prop = properties(i)
-      val propHtml = section(h2(prop.name), p(prop.description))
-
       val krProp = krProperties(i)
-      val krPropHtml = section(h2(krProp.name), p(krProp.description))
 
       Response.html(html(body(
-        propHtml,
-        krPropHtml,
+        prop.toHtml,
+        krProp.toHtml,
         a(href := "/", "back"),
         br(),
         a(href := "/15-properties", "all properties"),
