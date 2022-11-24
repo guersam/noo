@@ -70,12 +70,17 @@ object Main extends ZIOAppDefault {
       )
 
     case Method.GET -> !! / "15-properties" =>
-      val propHtmls: Seq[Dom] = properties.map(_.toHtml)
+      val propHtmls: Seq[Dom] =
+         properties.zip(krProperties)
+          .flatMap { case (p, kp) => List(p.toHtml, kp.toHtml, hr()) }
+
       Response.html(html(body(
         a(href := "/", "back"),
         br(),
         a(href := "/15-properties", "random property"),
+        hr(),
         propHtmls, 
+        hr(),
         a(href := "/", "back"),
         br(),
         a(href := "/15-properties/random", "random property"),
@@ -89,6 +94,7 @@ object Main extends ZIOAppDefault {
       Response.html(html(body(
         prop.toHtml,
         krProp.toHtml,
+        hr(),
         a(href := "/", "back"),
         br(),
         a(href := "/15-properties", "all properties"),
