@@ -30,6 +30,18 @@ object Main extends ZIOAppDefault {
   )
 
   val app: HttpApp[Any, Nothing] = Http.collect[Request] {
+    case Method.GET -> !! =>
+      import zio.http.html.*
+      Response.html(
+        html(
+          body(
+            a(href := "15-properties", "15 properties"),
+            br(),
+            a(href := "15-properties/random", "random property"),
+          )
+        )
+      )
+
     case Method.GET -> !! / "15-properties" =>
       val lines = properties.map { p => s"${p.name}\n\n${p.description}" }
       Response.text(lines.mkString("\n\n--\n\n"))
